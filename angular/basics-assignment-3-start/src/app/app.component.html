@@ -24,9 +24,14 @@
     </div>
   </div>
   <div class="row">
-    <button [disabled]="!allowNewServer" (click)="onCreateServer()">
-      Add server
-    </button>
-    <div>Surprise</div>
+    <button (click)="toggleDetails()">Display Details</button>
+    <div *ngIf="displayDetails">Surprise</div>
+    <div
+      *ngFor="let buttonClick of buttonClicks; let i = index"
+      [ngStyle]="{ backgroundColor: i >= 4 ? 'blue' : 'gray' }"
+      [ngClass]="{ whiteColor: i >= 4 }"
+    >
+      {{ buttonClick }}
+    </div>
   </div>
 </div>
